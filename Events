@@ -1,0 +1,19 @@
+// events_example.js
+const EventEmitter = require('events');
+const myEmitter = new EventEmitter();
+
+// Define a custom event
+myEmitter.on('event', () => {
+    console.log('An event occurred!');
+});
+
+// Emit the event
+myEmitter.emit('event');
+
+// Define another event with parameters
+myEmitter.on('greet', (name) => {
+    console.log(`Hello, ${name}!`);
+});
+
+// Emit the greet event
+myEmitter.emit('greet', 'Alice');
