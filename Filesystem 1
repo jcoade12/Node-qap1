@@ -1,0 +1,32 @@
+// fs_example.js
+const fs = require('fs');
+
+// Writing to a file
+fs.writeFile('example.txt', 'Hello, Node.js!', (err) => {
+    if (err) throw err;
+    console.log('File has been saved!');
+    
+    // Reading from a file
+    fs.readFile('example.txt', 'utf8', (err, data) => {
+        if (err) throw err;
+        console.log('File content:', data);
+        
+        // Appending to a file
+        fs.appendFile('example.txt', '\nAppending some text.', (err) => {
+            if (err) throw err;
+            console.log('Text has been appended!');
+            
+            // Reading the updated file
+            fs.readFile('example.txt', 'utf8', (err, updatedData) => {
+                if (err) throw err;
+                console.log('Updated file content:', updatedData);
+                
+                // Deleting the file
+                fs.unlink('example.txt', (err) => {
+                    if (err) throw err;
+                    console.log('File has been deleted!');
+                });
+            });
+        });
+    });
+});
