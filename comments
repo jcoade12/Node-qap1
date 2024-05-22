@@ -1,0 +1,31 @@
+const fs = require('fs'); // Importing the filesystem module
+
+// Writing to a file
+fs.writeFile('example.txt', 'Hello, Node.js!', (err) => {
+    if (err) throw err; // Error handling
+    console.log('File has been saved!'); // Log message on successful write
+    
+    // Reading from a file
+    fs.readFile('example.txt', 'utf8', (err, data) => {
+        if (err) throw err; // Error handling
+        console.log('File content:', data); // Log file content
+        
+        // Appending to a file
+        fs.appendFile('example.txt', '\nAppending some text.', (err) => {
+            if (err) throw err; // Error handling
+            console.log('Text has been appended!'); // Log message on successful append
+            
+            // Reading the updated file
+            fs.readFile('example.txt', 'utf8', (err, updatedData) => {
+                if (err) throw err; // Error handling
+                console.log('Updated file content:', updatedData); // Log updated file content
+                
+                // Deleting the file
+                fs.unlink('example.txt', (err) => {
+                    if (err) throw err; // Error handling
+                    console.log('File has been deleted!'); // Log message on successful delete
+                });
+            });
+        });
+    });
+});
