@@ -1,0 +1,15 @@
+// axios_example.js
+
+// Importing the axios module
+const axios = require('axios');
+
+// Making a GET request to a public API
+axios.get('https://api.github.com/users/octocat')
+  .then(response => {
+    // Logging the response data
+    console.log(response.data);
+  })
+  .catch(error => {
+    // Logging any errors
+    console.error(error);
+  });
