@@ -1,0 +1,12 @@
+// path_example.js
+
+// Importing the path module
+const path = require('path');
+
+// Joining two paths
+const joinedPath = path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+console.log('Joined Path:', joinedPath);
+
+// Resolving a path to an absolute path
+const absolutePath = path.resolve('path_example.js');
+console.log('Absolute Path:', absolutePath);
